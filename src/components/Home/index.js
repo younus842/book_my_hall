@@ -2,10 +2,6 @@ import Navbar from '../Navbar'
 import './index.css'
 import FunctionHall from '../FunctionHall'
 
-
-
-
-
 const Home = (props) => {
     const {halls} = props
     return (
