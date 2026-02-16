@@ -1,0 +1,45 @@
+.hall_image {
+    width: 400px;
+    height: 220px;
+    max-width: 70vw;
+
+}
+
+.function_hall_object {
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 20px;
+    width: 80vw;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        /* background-image: url('https://media.istockphoto.com/id/1433452064/photo/black-red-burgundy-silk-satin-soft-wavy-folds-shiny-fabric-dark-cherry-luxury-background-for.jpg?s=612x612&w=0&k=20&c=l7fGnjnx5pejmkFsUV8U7OL1SdICdMuHQkUwW3IH-Pg=');
+    background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;  */
+}
+
+.package-cost {
+    font-size: 22px;
+    color: rgb(34, 105, 237);
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-obj {
+width: 50%;
+font-size: 18px;
+}
+
+.hall_name {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 0px;
+      text-shadow: 1px 1px 0.5px #700f0f;
+      color: maroon;
+      font-family:Georgia, 'Times New Roman', Times, serif
+
+}
