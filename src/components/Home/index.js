@@ -7,14 +7,15 @@ import FunctionHall from '../FunctionHall'
 
 
 const Home = (props) => {
-    const {halls} = props
+    const { halls, updatedDates } = props
+
     return (
         <div className='home'>
             <Navbar />
 
             <div className='home-bottom-container'>
                 {halls.map((each) => {
-                    return <FunctionHall object={each} key={each.id} />
+                    return <FunctionHall object={each} key={each.id} updatedDates={updatedDates} />
                 })}
             </div>
 
