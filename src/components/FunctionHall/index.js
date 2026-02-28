@@ -1,19 +1,52 @@
+import BookingCalendar from '../BookingCalendar'
+import PaymentButton from '../PaymentButton';
 import './index.css'
+import { useState, useEffect } from 'react'
 
 const FunctionHall = (props) => {
-    const { object } = props
-    const { image_url, name, address, hall_package } = object
+    const { object, updatedDates } = props;
+    const { image_url, name, address, hall_package, bookedDates, id } = object;
+    // const [selectDate, setVal] = useState("")
+    // const [dateList, setDate] = useState([])
+
+
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         if (!payNow) {
+    //             setPayNow(true)
+    //         } else {
+    //             setPayNow(false)
+    //         }
+    //     }, 1500)
+    // }, [])
+
+
+
+
+    // const onSelectDate = (e) => {
+    //     setVal(e.target.value)
+    //     let dateSeleccted = e.target.value
+    //     const is_it_booked = dateList.includes(dateSeleccted)
+    //     if (!is_it_booked) {
+    //         setDate([...dateList, dateSeleccted])
+    //     }
+    // }
     return (
-        <div className='function_hall_object'>
-            <div className='left-obj'><img src={image_url} alt={name} className='hall_image' />
-                <p className='hall_name'> {name} function hall</p>
-            </div>
-            <div className='right-obj'>
-                <p className='package'>Per Day Package: Rs. <span className='package-cost'>{hall_package}</span></p>
-                <button className='hall-button'>Book Now</button>
+        <div className="function-hall">
+            <img src={image_url} className="hall-image" alt={name} />
+
+
+            <div className="card-body">
+                <strong className="card-title">{name}</strong>
+                <p className="card-text">{address}</p>
+                <p className="card-text">Price : {hall_package}</p>
+                <BookingCalendar id={id} bookedDates={bookedDates} updatedDates={updatedDates} />
+
+                <PaymentButton />
             </div>
         </div>
-    )
-}
+    );
+};
+
 
 export default FunctionHall

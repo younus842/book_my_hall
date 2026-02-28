@@ -18,7 +18,7 @@ const Navbar = (props) => {
       <div className="nav-content">
         <div className="nav-bar-mobile-logo-container">
           <Link className="link header-logo-container" to="/">
-            <p className="swigato-2 home-logo d-md-none">Swigato</p>
+            <p className="swigato-2 home-logo d-md-none">Book My Hall</p>
           </Link>
 
           <button
@@ -36,7 +36,7 @@ const Navbar = (props) => {
 
         <div className="nav-bar-large-container">
           <Link className="link header-logo-container" to="/">
-            <p className="swigato-2 home-logo">Swigato</p>
+            <p className="swigato-2 home-logo">Book My Hall</p>
           </Link>
           <ul className="nav-menu">
             <li className="nav-menu-item">
@@ -46,8 +46,8 @@ const Navbar = (props) => {
             </li>
 
             <li className="nav-menu-item">
-              <Link to="/cart" className="nav-link">
-                Cart
+              <Link to="/bookings" className="nav-link">
+                Bookings
                 {/* {renderCartItemsCount()} */}
               </Link>
             </li>
