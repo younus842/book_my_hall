@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css'
 import Home from "./components/Home";
 import Login from "./components/Login";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Bookings from './components/Bookings';
 
 const function_halls = [
   {
@@ -87,6 +89,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home halls={halls} updatedDates={updatedDates} />} />
         <Route path="/about" element={<Login />} />
+        <Route path="/bookings" element={<Bookings />} />
       </Routes>
     </BrowserRouter>
   );

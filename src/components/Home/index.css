@@ -1,8 +1,8 @@
-.home-bottom-container {
+.home-bottom-containers {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 15px;
+    align-items: center;
 
 }
 
@@ -11,7 +11,3 @@
   padding: 0px;
 }
 
-.home {
-
-
-}

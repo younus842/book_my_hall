@@ -3,3 +3,89 @@
   color: white !important;
   border-radius: 6px;
 }
+
+
+.react-calendar {
+  width: 100% !important;
+  max-width: 300px;
+  overflow-x: hidden !important;
+}
+
+
+.close-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.top-calendar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  padding: 10px;
+
+
+  
+}
+
+.calendar-container {
+  border: 1px solid #ccc;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.select-date {
+  font-size: 15px !important;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.calendar-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    display: flex;
+    border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+}
+
+.heading-calendar-main {
+  font-size: 16px;
+  color: rgb(34, 105, 237);
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.calendar-image:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+
+}
+
+
+@media (max-width : 760px) {
+  .react-calendar {
+    max-width: 250px;
+  }
+
+  .calendar-container {
+
+    width: 250px;
+
+}
+}

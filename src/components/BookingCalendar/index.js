@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import './index.css'
+import Image from '../../assets/calendar2.png'
 
 function BookingCalendar(props) {
     const [selectedDate, setSelectedDate] = useState(null);
     const { bookedDates, updatedDates, id } = props
     console.log(bookedDates)
+
+    const [hasClicked, setHasClicked] = useState(false);
 
 
     // Format date to YYYY-MM-DD
@@ -46,11 +49,11 @@ function BookingCalendar(props) {
     const tileClassName = ({ date, view }) => {
         if (view !== "month") return null;
 
-        const activeMonth = selectedDate
-            ? selectedDate.getMonth()
-            : new Date().getMonth();
+        // const activeMonth = selectedDate
+        //     ? selectedDate.getMonth()
+        //     : new Date().getMonth();
 
-        if (date.getMonth() !== activeMonth) return null;
+        // if (date.getMonth() !== activeMonth) return null;
 
         const formatted = formatDate(date);
 
@@ -73,7 +76,7 @@ function BookingCalendar(props) {
         } else {
             setSelectedDate(date);
             alert(`You selected ${formatted}`);
-            updatedDates(id,formatted)
+            updatedDates(id, formatted)
         }
     };
 
@@ -82,17 +85,23 @@ function BookingCalendar(props) {
     maxDate.setMonth(maxDate.getMonth() + 6);
 
     return (
-        <div style={{ width: "400px", margin: "50px auto" }}>
-            <h2>Book Function Hall</h2>
+        <div>
+            <h5 className="mb-2 heading-calendar-main">Check Availability</h5>
+            {!hasClicked ? <img onClick={() => setHasClicked(true)} src={Image} alt="Calendar" className="calendar-image" />
+                : <div className="calendar-container">
+                    <div className="top-calendar-container">
+                        <h5 className=" select-date">Select a Date</h5>
+                        <button className="close-button" onClick={() => setHasClicked(false)}>X</button>
+                    </div>
 
-            <Calendar
-                onChange={handleDateChange}
-                value={selectedDate}
-                minDate={new Date()}
-                maxDate={maxDate}
-                tileDisabled={tileDisabled}
-                tileClassName={tileClassName}
-            />
+                    <Calendar className={"react-calendar"}
+                        onChange={handleDateChange}
+                        value={selectedDate}
+                        minDate={new Date()}
+                        maxDate={maxDate}
+                        tileDisabled={tileDisabled}
+                        tileClassName={tileClassName}
+                    /></div>}
 
             {selectedDate && (
                 <p style={{ marginTop: "20px" }}>

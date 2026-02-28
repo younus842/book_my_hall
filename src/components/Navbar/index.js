@@ -46,8 +46,8 @@ const Navbar = (props) => {
             </li>
 
             <li className="nav-menu-item">
-              <Link to="/cart" className="nav-link">
-                Cart
+              <Link to="/bookings" className="nav-link">
+                Bookings
                 {/* {renderCartItemsCount()} */}
               </Link>
             </li>
