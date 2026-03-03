@@ -1,10 +1,22 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './index.css'
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Bookings from './components/Bookings';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Bookings from "./components/Bookings";
+import BookingDates from "./components/Context";
+import About from "./components/About";
+import SeparateHall from "./components/SeparateHall";
+
+
+
+
+
+
+
 
 const function_halls = [
   {
@@ -13,7 +25,7 @@ const function_halls = [
     address: 'Bodhan Road, near knowledge park',
     image_url: 'https://img.weddingbazaar.com/photos/pictures/008/687/818/original/Screenshot_2024-09-06_113327.png?1725602696',
     hall_package: 59999,
-    bookedDates: ["2026-02-19", "2026-02-21", "2026-02-12"]
+    bookedDates: ["2026-03-19", "2026-03-21", "2026-03-12"]
   },
   {
     id: 2,
@@ -21,7 +33,7 @@ const function_halls = [
     address: 'Bodhan Road, near knowledge park',
     image_url: 'https://content3.jdmagicbox.com/comp/nizamabad/h9/9999p8462.8462.171201174649.z8h9/catalogue/n-n-palace-function-hall-bodhan-nizamabad-banquet-halls-2e9vk9pi5u.jpg',
     hall_package: 66999,
-    bookedDates: ["2026-02-19", "2026-02-21", "2026-02-12"]
+    bookedDates: ["2026-03-19", "2026-03-21", "2026-03-12"]
   },
   {
     id: 3,
@@ -29,7 +41,7 @@ const function_halls = [
     address: 'Bodhan Road, near Taj Dhaba',
     image_url: 'https://content3.jdmagicbox.com/comp/nizamabad/q5/9999p8462.8462.221231224415.z8q5/catalogue/imperial-convention-nizamabad-convention-halls-vrsesnjl2j.jpg',
     hall_package: 39999,
-    bookedDates: ["2026-02-21"]
+    bookedDates: ["2026-03-21"]
   },
   {
     id: 4,
@@ -37,7 +49,7 @@ const function_halls = [
     address: 'Bodhan Road, near knowledge park',
     image_url: 'https://files.yappe.in/place/full/arr-function-hall-10511956.webp',
     hall_package: 54999,
-    bookedDates: ["2026-02-19"]
+    bookedDates: ["2026-03-19"]
   },
   {
     id: 5,
@@ -54,6 +66,8 @@ const function_halls = [
 
 function App() {
   const [halls, setHalls] = useState(function_halls)
+  const [bookedHalls, setBookedHalls] = useState([])
+
 
   const updatedDates = (id, value) => {
     console.log(id, value)
@@ -84,14 +98,27 @@ function App() {
 
   }
 
+  const takeobject = (object) => {
+    const { image_url, name, address, hall_package, bookedDates, id } = object;
+    setBookedHalls(prev => [...prev, object])
+    console.log(bookedHalls)
+  }
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home halls={halls} updatedDates={updatedDates} />} />
-        <Route path="/about" element={<Login />} />
-        <Route path="/bookings" element={<Bookings />} />
-      </Routes>
-    </BrowserRouter>
+    <BookingDates.Provider value={{ halls, updatedDates }}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home halls={halls} updatedDates={updatedDates} />}
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/bookings" element={<Bookings />} />
+          <Route path="/hall/:id" element={<SeparateHall />} />
+        </Routes>
+      </BrowserRouter>
+    </BookingDates.Provider>
   );
 }
 

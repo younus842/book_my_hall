@@ -7,7 +7,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* This forces the calendar to scale down on tiny screens */
+@media (max-width: 380px) {
+  .rdp-root {
+    --rdp-cell-size: 30px !important;  /* Reduces the size of each day square */
+    margin: 0;
+  }
+  
+  /* Or use scaling if it's still too big */
+  .rdp-months {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+

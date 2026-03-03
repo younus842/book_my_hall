@@ -1,0 +1,62 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Modal Content */
+.modal-content-custom {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Animation */
+.animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-close-custom {
+    transition: transform 0.2s;
+}
+
+.btn-close-custom:hover {
+    transform: rotate(90deg);
+}
+
+/* Custom Text colors if Bootstrap defaults aren't enough */
+.bg-info-subtle {
+    background-color: #e1f5fe !important;
+    color: #01579b !important;
+}
+
+.modal-body-custom::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-body-custom::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}

@@ -57,6 +57,7 @@ function PaymentButton({ selectedDate, hallId }) {
 
                 if (result.success) {
                     alert("Booking Confirmed 🎉");
+                    
                 } else {
                     alert("Payment verification failed");
                 }

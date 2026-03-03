@@ -1,79 +1,100 @@
-* {
-    font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif
+/* =========================
+   CARD BASE
+========================= */
+
+.custom-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.function-hall {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 20px;
-    padding: 10px;
-
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
 }
 
-.rupees {
-    color: rgb(255, 230, 0);
-    font-size: 19px;
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.image-wrapper {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
-.button-book {
-    background-color: #0d6efd;
-    padding: 4px 16px;
-    border-radius: 7px;
-    color: white;
-    border: none;
-    height: 37px !important;
+.hall-image {
+  transition: transform 0.6s ease;
 }
 
-.hall_image {
-    width: 200px;
-    height: 200px;
-    max-width: 90vw;
-
-    border-radius: 8px;
+.custom-card:hover .hall-image {
+  transform: scale(1.08);
 }
 
-.card-body {
-    margin-left: 15px;
+/* =========================
+   LOCATION + CAPACITY EFFECT
+========================= */
+
+.location-box {
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-@media (max-width : 760px) {
-
-    .function-hall {
-        width: 90vw;
-        max-width: 90vw;
-
-    }
-
-    .card-body {
-        margin-left: 0px;
-        margin-top: 10px;
-    }
-
+.location-box:hover {
+  transform: translateX(8px);
 }
 
-
-
-
-.package-cost {
-    font-size: 22px;
-    color: rgb(34, 105, 237);
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
+.location-icon {
+  color: red;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* .right-obj {
-    width: 50%;
-    font-size: 18px;
-} */
+.capacity-icon {
+  color: #0d6efd;
+  transition: transform 0.3s ease;
+}
 
-.hall_name {
-    margin: 10px;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 0px;
-    text-shadow: 1px 1px 0.5px #700f0f;
-    color: maroon;
-    font-family: Georgia, 'Times New Roman', Times, serif
+.location-box:hover .location-icon,
+.location-box:hover .capacity-icon {
+  transform: scale(1.15);
+}
+
+/* =========================
+   BUTTON EFFECTS
+========================= */
+
+.btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(108, 117, 125, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
+}
+
+/* =========================
+   RATING BADGE EFFECT
+========================= */
+
+.custom-card:hover .position-absolute {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+  .image-wrapper {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
 }

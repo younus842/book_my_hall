@@ -1,91 +1,60 @@
-.booked-date {
-  background-color: red !important;
-  color: white !important;
-  border-radius: 6px;
-}
+/* BookingCalendar.css */
 
-
+/* Force react-calendar to be responsive */
 .react-calendar {
-  width: 100% !important;
-  max-width: 300px;
-  overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100%;
+    background: white;
+    border: none !important;
+    font-family: inherit;
 }
 
-
-.close-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 11px;
+/* Make tiles perfectly square and centered */
+.react-calendar__tile {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
 }
 
-.top-calendar-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 10px;
-  justify-content: space-between;
-  padding: 10px;
-
-
-  
+/* Booked Date Style */
+.booked-date {
+    background-color: #f8d7da !important; /* Bootstrap danger-subtle */
+    color: #b02a37 !important;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    margin: 3px !important;
 }
 
-.calendar-container {
-  border: 1px solid #ccc;
-    width: 300px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 10px;
+.un-booked-date {
+    background-color: #d1e7dd !important; /* Bootstrap success-subtle */
+    color: #0f5132 !important;
+    cursor: pointer;
+    margin: 3px !important;
 }
 
-.select-date {
-  font-size: 15px !important;
-  font-weight: 400;
-  margin: 0px;
-  padding: 0px;
+/* Active/Selected Date Style */
+.react-calendar__tile--active {
+    background: #0d6efd !important; /* Bootstrap primary */
+    color: white !important;
 }
 
-
-
-.calendar-image {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  display: block;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    display: flex;
-    border-radius: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-
+/* Hover effect */
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #2478e7 !important;
+    color: white !important;
+    border-radius: 30px !important;
 }
 
-.heading-calendar-main {
-  font-size: 16px;
-  color: rgb(34, 105, 237);
-
-  font-family: Arial, Helvetica, sans-serif;
+/* Animations */
+.fade-zoom-in {
+    animation: fadeInZoom 0.3s ease-out;
 }
 
-.calendar-image:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-
-}
-
-
-@media (max-width : 760px) {
-  .react-calendar {
-    max-width: 250px;
-  }
-
-  .calendar-container {
-
-    width: 250px;
-
-}
+@keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
