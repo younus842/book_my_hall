@@ -12,9 +12,13 @@ const Navbar = (props) => {
     navigate("/login", { replace: true });
   };
 
-
+  let backgroundStyle = 'image-background'
+  const { boolean } = props
+  if (boolean === undefined) {
+    backgroundStyle = ''
+  }
   return (
-    <nav className="nav-header">
+    <nav className={`nav-header ${backgroundStyle}`}>
       <div className="nav-content">
         <div className="nav-bar-mobile-logo-container">
           <Link className="link header-logo-container" to="/">

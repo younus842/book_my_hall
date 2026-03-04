@@ -63,13 +63,30 @@ const SeparateHall = (props) => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3, // Shows 3 images side by side
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        arrows: true,
+        centerMode: true, // Focuses the middle image
+        centerPadding: "0px",
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false
+                }
+            }
+        ]
     };
 
     if (!hall) {
@@ -116,23 +133,25 @@ const SeparateHall = (props) => {
                 return (
 
                     <div className="individual-page">
-                        <Navbar />
+                        <Navbar boolean={true} />
                         <div className="top-container-separate-page">
-                            <div style={{ width: "90%", margin: "auto", marginTop: "40px" }}>
+                            <div className="carousel-container px-4">
                                 <Slider {...settings}>
                                     {hall.images.map((img, index) => (
-                                        <div key={index}>
-                                            <img
-                                                className="bg-white/60 image-carousel backdrop-blur-sm rounded-lg shadow-md"
-                                                src={img}
-                                                alt={`slide-${index}`}
-                                                style={{
-                                                    width: "100%",
-                                                    height: "450px",
-                                                    objectFit: "cover",
-                                                    borderRadius: "10px",
-                                                }}
-                                            />
+                                        <div key={index} className="px-2"> {/* Added padding for spacing */}
+                                            <div className="carousel-card mt-3 shadow-sm rounded-4 overflow-hidden">
+                                                <img
+                                                    src={img}
+                                                    alt={`slide-${index}`}
+                                                    className="carousel-img-multi"
+                                                    style={{
+                                                        width: "100%",
+                                                        height: "350px",
+                                                        objectFit: "cover",
+                                                        borderRadius: "10px",
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
                                     ))}
                                 </Slider>

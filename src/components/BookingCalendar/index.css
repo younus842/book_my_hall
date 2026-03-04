@@ -58,3 +58,41 @@
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
+
+/* Styling for dates before today */
+.past-date {
+    background-color: #f8f9fa !important; /* Light grey background */
+    color: #dee2e6 !important;           /* Very faint text color */
+    text-decoration: line-through;       /* Visual cue that it's over */
+    cursor: not-allowed !important;
+    pointer-events: none;                /* Prevents clicking */
+    border: none !important;
+    margin: 3px !important;
+}
+
+/* Ensure the 'Booked' styling remains distinct */
+.booked-date {
+    background-color: #f8d7da !important;
+    color: #842029 !important;
+    cursor: not-allowed !important;
+}
+
+/* Styling for available future dates */
+.un-booked-date {
+    background-color: #e8f5e9 !important;
+    color: #0f5132 !important;
+    transition: all 0.2s ease;
+}
+
+.un-booked-date:hover {
+    background-color: #c8e6c9 !important;
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* Fix for the selected date overlap */
+.react-calendar__tile--active {
+    background: #0d6efd !important;
+    color: white !important;
+    border-radius: 8px;
+}

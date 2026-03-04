@@ -1,0 +1,82 @@
+/* Hero Card Base */
+.no-venues-hero-card {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Fixed height creates a "Hero" section */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: height 0.3s ease;
+}
+
+/* 1. The Dark Gradient Overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* A dark radial or linear gradient ensures contrast */
+    background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%);
+    z-index: 1;
+}
+
+/* 2. Content Wrapper (Absolutely Centered) */
+.hero-content-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 2; /* Sits above the overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Lucide Icon Styling */
+.icon-badge-on-image {
+    width: 75px;
+    height: 75px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text Overrides to ensure white/gray text */
+.no-venues-hero-card h1 {
+    letter-spacing: -1px;
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Animation */
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Responsive Mobile Adjustments */
+@media (max-width: 767px) {
+    .no-venues-hero-card {
+        height: 550px; /* Shorter header on mobile */
+    }
+    
+    .no-venues-hero-card h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content-wrapper p {
+        font-size: 0.95rem !important;
+    }
+
+
+}
+

@@ -19,10 +19,26 @@ function BookingCalendar({ bookedDates, setDate }) {
         return date < today || bookedDates.includes(formatDate(date));
     };
 
-    const tileClassName = ({ date, view }) => {
-        if (view !== "month") return null;
-        return bookedDates.includes(formatDate(date)) ? "booked-date" : 'un-booked-date';
-    };
+const tileClassName = ({ date, view }) => {
+    if (view !== "month") return null;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const formattedDate = formatDate(date);
+
+    // 1. Check if the date is in the past
+    if (date < today) {
+        return "past-date";
+    }
+
+    // 2. Check if the date is booked
+    if (bookedDates.includes(formattedDate)) {
+        return "booked-date";
+    }
+
+    // 3. Otherwise, it's a valid un-booked date
+    return "un-booked-date";
+};
 
 const handleDateChange = (date) => {
     const formatted = formatDate(date);

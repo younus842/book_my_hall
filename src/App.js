@@ -67,6 +67,7 @@ const function_halls = [
 function App() {
   const [halls, setHalls] = useState(function_halls)
   const [bookedHalls, setBookedHalls] = useState([])
+  const [searchQuery, setSearchQuery] = useState("");
 
 
   const updatedDates = (id, value) => {
@@ -98,6 +99,16 @@ function App() {
 
   }
 
+  const filteredHalls = halls.filter(hall => {
+    if (hall.name.toLowerCase().includes(searchQuery.toLowerCase()) || hall.address.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return true;
+    }
+    return false;
+  }); 
+
+
+
+
   const takeobject = (object) => {
     const { image_url, name, address, hall_package, bookedDates, id } = object;
     setBookedHalls(prev => [...prev, object])
@@ -105,12 +116,12 @@ function App() {
   }
 
   return (
-    <BookingDates.Provider value={{ halls, updatedDates }}>
+    <BookingDates.Provider value={{ halls, updatedDates, filteredHalls }}>
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
-            element={<Home halls={halls} updatedDates={updatedDates} />}
+            element={<Home halls={halls} searchQuery={searchQuery} updatedDates={updatedDates} filteredHalls={filteredHalls}  setSearchQuery={setSearchQuery} />}
           />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />

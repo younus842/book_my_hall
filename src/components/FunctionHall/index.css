@@ -87,6 +87,11 @@
   transition: transform 0.3s ease;
 }
 
+.function-hall-new {
+    border: 0px !important;
+    padding: 0px !important;
+}
+
 /* =========================
    MOBILE FIX
 ========================= */
@@ -97,4 +102,9 @@
     border-top-right-radius: 20px;
     border-bottom-left-radius: 0;
   }
+}
+
+.small-font-day {
+    font-size: 12px;
+
 }
