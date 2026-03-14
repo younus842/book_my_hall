@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.nav-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px 0;
+}
+
+.swigato-2 {
+    font-weight: bold;
+    font-size: 22px;
+    color: #3f51b5;
+    margin: 0;
+}
+
+.nav-link {
+    color: #495057;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 15px;
+}
+
+.nav-link:hover {
+    color: #3f51b5;
+}
+
+.logout-desktop-btn {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    width: 40px;
+    height: 40px;
+}
+
+.filter-section {
+    background-color: #f1f3f9;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.nav-bar-img {
+    width: 25px;
+    height: 25px;
+}
+
+.nav-mobile-btn {
+    background: none;
+    border: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header-logo-container {
+    text-decoration: none;
+}
+
+.nav-bar-img {
+    width: 25px;
+    /* Ensure a visible size */
+    height: 25px;
+    object-fit: contain;
+}
+
+.nav-menu-list-mobile {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-link {
+    display: block;
+    padding: 8px;
+}
+
+.nav-header {
+  min-height: 70px;
+}
+
+.home-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0d6efd;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+.nav-link {
+  transition: transform 0.2s;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.animate__animated.animate__fadeInDown {
+  animation: fadeInDown 0.5s ease-in-out;
+}

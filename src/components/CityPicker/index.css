@@ -1,0 +1,42 @@
+/* Container for the city circles */
+.city-circle {
+    width: 70px;
+    height: 70px;
+    background-color: #fcfcfc;
+    border: 1px solid #f0f0f0;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.city-circle img {
+    width: 45px; /* Adjust based on your actual icon size */
+    height: auto;
+    filter: grayscale(100%); /* Optional: makes them look uniform */
+    opacity: 0.7;
+}
+
+/* Hover effects */
+.col-4:hover .city-circle {
+    background-color: #fff5f5;
+    border-color: #ff385c;
+    transform: translateY(-5px);
+}
+
+.col-4:hover .city-circle img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05rem;
+}
+
+/* Reuse your BookingModal animation */
+.animate-modal-up {
+    animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

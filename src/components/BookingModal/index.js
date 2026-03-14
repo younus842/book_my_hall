@@ -1,20 +1,27 @@
 import React from 'react';
 import { Calendar, AlertCircle } from "lucide-react";
 import BookingDates from '../Context';// Optional icons for better UI
+import { useNavigate } from 'react-router-dom';
 
 export default function BookingModal({ show, onClose, hall, selectedDate }) {
+    const navigate = useNavigate(); // Must be at the top level
     if (!show) return null;
+
 
     // Check if selectedDate is actually a valid Date object
     const isDateValid = selectedDate instanceof Date && !isNaN(selectedDate);
 
     return (
         <BookingDates.Consumer>{(value) => {
-            const { halls, updatedDates } = value;
-            
+            const { halls, updatedDates, setBookedHalls } = value;
+
+            const ourHall = halls.find(h => h.id === hall.id);
+
             const handleConfirm = () => {
                 updatedDates(hall.id, selectedDate.toLocaleDateString('en-CA')); // Update the booked dates in context
-                onClose(); 
+                setBookedHalls(prev => [...prev, { ...ourHall, selectedDate: selectedDate.toLocaleDateString('en-CA'), advance_payment: Math.round(ourHall.hall_package * 0.1) }]);
+                navigate('/bookings');// Add to booked halls for display in Bookings
+                onClose();
             }
 
             return (<>
@@ -101,7 +108,7 @@ export default function BookingModal({ show, onClose, hall, selectedDate }) {
                                         Cancel
                                     </button>
                                     <button
-                                    onClick={handleConfirm}
+                                        onClick={handleConfirm}
                                         type="button"
                                         className="btn btn-primary px-5 py-2 rounded-3 fw-bold shadow-sm"
                                     >

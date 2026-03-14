@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+.service-wrapper {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.custom-card2 {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease;
+}
+
+.custom-card2:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* RED Coming Soon Badge */
+.coming-soon-badge-red {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff0000; /* Red Background */
+  color: white; /* White Text */
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* Primary to Black Transition */
+.btn-stay-tuned {
+  background-color: #0d6efd !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-stay-tuned:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Back to Home - Outline on Hover */
+.btn-back-home {
+  background-color: transparent !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important; /* Hide border initially */
+}
+
+.btn-back-home:hover {
+  border: 1px solid #212529 !important; /* Show black outline on hover */
+  color: #212529 !important;
+  background-color: transparent !important;
+}
+
+.btn {
+  border-radius: 8px !important;
+}

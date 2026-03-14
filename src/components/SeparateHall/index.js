@@ -1,34 +1,38 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ArrowLeft, MapPin, Users, IndianRupee, Check } from "lucide-react";
 import { functionHalls } from "../data/functionHalls";
-import Navbar from "../Navbar";
 import './index.css'
 import BookingCalendar from "../BookingCalendar";
 import BookingDates from "../Context";
 import BookingModal from "../BookingModal";
+import BookButton from "../BookButton";
+import Navbar2 from "../Navbar2";
 
 const SeparateHall = (props) => {
+
+    useLayoutEffect(() => {
+        // 1. Force instant jump to top
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant' // This is the key to "starting from the first"
+        });
+    }, []);
+
+
+
     const { id } = useParams();
     console.log(props);
     const navigate = useNavigate();
     const [selectedDate, setSelectedDate] = useState('');
     const [showModal, setShowModal] = useState(false);
-    const [payNow, setPayNow] = useState(false);
 
     const hall = functionHalls.find((h) => h.id === parseInt(id));
 
-    useEffect(() => {
-        // Set up the interval
-        const interval = setInterval(() => {
-            setPayNow((prev) => !prev);
-        }, 1000);
 
-        // IMPORTANT: Clean up the interval when the component is removed
-        return () => clearInterval(interval);
-    }, []);
 
     function NextArrow(props) {
         const { onClick } = props;
@@ -116,6 +120,7 @@ const SeparateHall = (props) => {
                 d.getFullYear() === date.getFullYear()
         );
 
+
     const handleBookNow = () => {
         // alert(
         //     `Hall: ${hall.name}\nAdvance: ₹${advancePayment}\nRemaining: ₹${remainingPayment}`
@@ -123,17 +128,20 @@ const SeparateHall = (props) => {
         setShowModal(true);
     };
 
+
+
+
     return (
         <BookingDates.Consumer>
             {(value) => {
                 const { halls } = value;
                 const currentHall = halls.find(h => h.id === parseInt(id));
-                const bookedDates_new = currentHall ? currentHall.bookedDates : [];
-                console.log('Current Hall Booked Dates:', currentHall ? currentHall.bookedDates : 'No hall found');
+                const bookedDates_new = currentHall ? currentHall.booked_dates : [];
+                console.log('Current Hall Booked Dates:', currentHall ? currentHall.booked_dates : 'No hall found');
                 return (
 
                     <div className="individual-page">
-                        <Navbar boolean={true} />
+                        <Navbar2 boolean={false}  />
                         <div className="top-container-separate-page">
                             <div className="carousel-container px-4">
                                 <Slider {...settings}>
@@ -291,9 +299,7 @@ const SeparateHall = (props) => {
                                         Remaining ₹{remainingPayment.toLocaleString()} offline.
                                     </div>
 
-                                    <button onClick={handleBookNow} className="book-btn">
-                                        {payNow ? "Book Now!" : <p className="card-text">Pay <span className='rupees'>₹{advancePayment.toLocaleString()}</span> Only</p>}
-                                    </button>
+                                    {/* rtyurturtujrjryuj */}<BookButton advancePayment={advancePayment} handleBookNow={handleBookNow} />
                                 </div>
 
                                 <div className="card shadow p-4 mb-4">
@@ -310,7 +316,7 @@ const SeparateHall = (props) => {
                             </div>
 
                             <div className="right-container">
-                                {bookedDates_new ? (
+                                {bookedDates_new.length === 0 ? (
                                     <BookingCalendar setDate={setSelectedDate} bookedDates={bookedDates_new} />
                                 ) : "Loading..."}
                             </div>

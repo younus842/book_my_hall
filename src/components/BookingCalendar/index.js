@@ -73,7 +73,7 @@ const handleDateChange = (date) => {
                         onChange={handleDateChange}
                         value={selectedDate}
                         minDate={new Date()}
-                        maxDate={new Date(new Date().setMonth(new Date().getMonth() + 6))}
+                        maxDate={new Date(new Date().setMonth(new Date().getMonth() + 48))}
                         tileDisabled={tileDisabled}
                         tileClassName={tileClassName}
                     />

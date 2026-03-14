@@ -19,11 +19,11 @@ const days = [
 
 const FunctionHall = (props) => {
     const { object, updatedDates } = props;
-    const { image_url, name, address, hall_package, bookedDates, id } = object;
+    const { images, name, address, price, bookedDates, id } = object;
     const [payNow, setPayNow] = useState(false)
     // const [selectDate, setVal] = useState("")
     // const [dateList, setDate] = useState([])
-
+    const roundedPrice = price ? Math.round(price) : "N/A";
     useEffect(() => {
         // Set up the interval
         const interval = setInterval(() => {
@@ -43,8 +43,8 @@ const FunctionHall = (props) => {
     //     }
     // }
     return (
-        <Link to={`/hall/${id}`} className="text-decoration-none py-4">
-            <div className="container d-flex flex-column align-items-center justify-content-center">
+        <Link to={`/hall/${id}`} className="text-decoration-none py-2">
+            <div className="container-3 d-flex flex-column align-items-center justify-content-center">
                 <div
                     className="card col-md-10 shadow-lg border-0 custom-card function-hall-new"
                     style={{ borderRadius: "20px" }}
@@ -52,7 +52,7 @@ const FunctionHall = (props) => {
                     <div className="row g-0">
                         <div className="col-12 col-md-5 position-relative image-wrapper">
                             <img
-                                src={image_url}
+                                src={images[0]}
                                 alt={name}
                                 className="img-fluid w-100 hall-image"
                                 style={{
@@ -73,7 +73,7 @@ const FunctionHall = (props) => {
                         <div className="col-12 col-md-7 p-4">
                             <div className="d-flex justify-content-between align-items-start mb-4">
                                 <div>
-                                    <h2 className="fw-bold mb-1">{name}</h2>
+                                    <h4 className="fw-bold mb-1">{name}</h4>
                                     <p className="text-muted small mb-0 d-flex align-items-center pt-3">
                                         <MapPin size={16} className="text-danger me-1" /> {address}
                                     </p>
@@ -117,8 +117,8 @@ const FunctionHall = (props) => {
                                 {/* Price */}
                                 <div className="col-12 col-md-7 mb-3 mb-md-0">
                                     <div className="text-muted">Starting from</div>
-                                    <div className="fw-bold" style={{ fontSize: "28px" }}>
-                                        <span>₹ {hall_package}</span>
+                                    <div className="fw-bold" style={{ fontSize: "22px" }}>
+                                        <span>₹ {roundedPrice}</span>
                                         <span className="fs-6 text-muted"> /day</span>
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@ const FunctionHall = (props) => {
                                     <div className="fw-bold" style={{ fontSize: "32px" }}>
 
                                         <button className="btn btn-primary  w-100 w-md-auto px-4 py-2 ">
-                                            {payNow ? "Book Now!" : `Pay ₹${(hall_package * 0.1).toLocaleString()} Advance`}
+                                            {payNow ? "Book Now!" : `Pay ₹${(price * 0.1).toLocaleString()} Advance`}
                                         </button>
                                     </div>
                                 </div>
